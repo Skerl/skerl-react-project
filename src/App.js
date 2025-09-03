@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [value, setValue] = useState('Text in input')
+  console.log(count)
+  console.log(setCount)
+
+  function decrimnet() {
+    setCount(count+1)
+  }
+
+  function incriment() {
+    setCount(count-1)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Likes: {count}</h1>
+      <h1>Value: {value}</h1>
+      <input>
+        type="text"
+        value={value}
+        onChange={event => setValue(even)}
+      </input>
+      <button onClick={incriment}>Inecrement</button>
+      <button onClick={decrimnet}>Decrement</button>
     </div>
   );
 }
