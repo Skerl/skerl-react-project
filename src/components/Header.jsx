@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
+import {ThemeContext} from "./ThemeProvider";
 
 export default function Header() {
+   const {theme, setTheme} = useContext(ThemeContext);
+
+   const changeTheme = () => {
+       setTheme(theme === "light" ? "dark" : "light");
+
+   }
+
     return (
         <header>
+            <button className="theme-toggle" onClick={changeTheme}>🌙</button>
             <div className="header-content">
                 <div className="logo">📰 Skerl1k News</div>
 

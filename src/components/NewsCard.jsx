@@ -5,9 +5,9 @@ export default function NewsCard({newsItem}) {
         <section className="hero-news">
             <div className="hero-content">
                 <div className="hero-meta">
-                    <span>{newsItem.location}</span>
-                    <span>{newsItem.time}</span>
-                    <span>{newsItem.views}</span>
+                    <span>📍 {newsItem.location}</span>
+                    <span>🕒 {newsItem.time}</span>
+                    <span>👁 {newsItem.views}</span>
                 </div>
 
                 <h2 className="hero-title">{newsItem.title}</h2>

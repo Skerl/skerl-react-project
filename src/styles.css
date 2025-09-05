@@ -23,13 +23,44 @@ ul, ol {
     list-style: none;
 }
 
+.theme-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: var(--change-theme);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background: #5a67d8;
+    transform: translateY(-50%) scale(1.1);
+}
+
 header {
-     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     background: var(--header-background-color);
     color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
     padding: 0.6rem 0;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
 
 }
 
@@ -87,12 +118,70 @@ body {
     font-family: Segoe UI, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: var(--main-background-color);
     min-height: 100vh;
+
+    --header-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --header-text-color: white;
+
+    --main-container-color: white;
+    --main-background-color: white;
+    --main-text-color: white;
+
+    --footer-text-color: white;
+    --footer-background-color: #333;
+
+    -pagination-bg: white;
+    --pagination-text: #667eea;
+    --pagination-border: #667eea;
+
+    --pagination-hover-bg: #667eea;
+    --pagination-hover-text: white;
+
+    --pagination-active-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --pagination-active-text: white;
+    --pagination-active-border: #764ba2;
+
+    --pagination-disabled-bg: #f5f5f5;
+    --pagination-disabled-text: #ccc;
+    --pagination-disabled-border: #e0e0e0;
+
+    --change-theme: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
+
+}
+
+body.dark {
+    --header-background-color: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
+    --header-text-color: #f1f1f1;
+
+    --main-container-color: #787878;
+    --main-background-color: #535353;
+    --main-text-color: #e0e0e0;
+
+    --footer-background-color: #1a1a1a;
+    --footer-text-color: #bbbbbb;
+
+    --pagination-bg: #363636;
+    --pagination-text: #ffffff;
+    --pagination-border: rgba(137, 158, 255, 0);
+
+    --pagination-hover-bg: #5c6bc0;
+    --pagination-hover-text: #fff;
+
+    --pagination-active-bg: linear-gradient(135deg, #4e63e6 0%, #3749ca 100%);
+    --pagination-active-text: white;
+    --pagination-active-border: #303f9f;
+
+    --pagination-disabled-bg: #2a2a2a;
+    --pagination-disabled-text: #777;
+    --pagination-disabled-border: #444;
+
+
+    --change-theme: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
 }
 
 .serach-btn {
-    background: pink;
     border: none;
     border-radius: 10px;
     width: 40px;
@@ -105,7 +194,7 @@ body {
 }
 
 .main-content {
-    background: white;
+    background: var(--main-container-color);
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -114,7 +203,8 @@ body {
 
 .hero-news {
     position: relative;
-    height: 400px;
+    height: 350px;
+    width: 760px;
     border-radius: 15px;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -163,4 +253,117 @@ body {
     font-size: 1.1rem;
     opacity: 0.9;
     line-height: 1.5;
+}
+
+
+/* Додайте ці стилі до вашого src/styles.css файлу */
+
+/* Стилі для пагінації */
+.pagination-container {
+    }
+
+.pagination-info {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+}
+
+.pagination-btn {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--pagination-border);
+    background: var(--pagination-bg);
+    color: var(--pagination-text);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 45px;
+}
+
+.pagination-btn:hover:not(.disabled) {
+    background: var(--pagination-hover-bg);
+    color: var(--pagination-hover-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* можна теж винести у змінну */
+}
+
+.pagination-btn.active {
+    background: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+    border-color: var(--pagination-active-border);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); /* теж бажано у змінну */
+}
+
+.pagination-btn.disabled {
+    background: var(--pagination-disabled-bg);
+    color: var(--pagination-disabled-text);
+    border-color: var(--pagination-disabled-border);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination-btn.disabled:hover {
+    background: #f5f5f5;
+    color: #ccc;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Стилі для списку новин */
+.news-list {
+    width: 100%;
+}
+
+.news-items {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Анімація появи новин */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-news {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Респонсивність для пагінації */
+@media (max-width: 768px) {
+    .pagination {
+        gap: 0.25rem;
+    }
+
+    .pagination-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 40px;
+    }
+
+    .pagination-info {
+        font-size: 0.8rem;
+    }
+}
+
+
+.pagination-btn-move {
+    padding: 0.75rem 0.5rem;
 }
