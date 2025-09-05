@@ -1,0 +1,22 @@
+button {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+
+}
+
+.tictac {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clearbtn {
+    width: 200px;
+    height: 200px;
+}
+
+.board-row {
+    display: flex;
+}
