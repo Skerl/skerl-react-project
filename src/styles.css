@@ -1,22 +1,97 @@
-button {
-    font-size: 50px;
-    width: 100px;
-    height: 100px;
+/* Обнулення стилів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Для HTML5 елементів */
+html, body {
+    height: 100%;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* Забрати декорації з посилань */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Скидання стилів списків */
+ul, ol {
+    list-style: none;
+}
+
+header {
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
 
 }
 
-.tictac {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+/*ul.nav li {*/
+/*    color: red;*/
+/*}*/
 
-.clearbtn {
-    width: 200px;
-    height: 200px;
-}
-
-.board-row {
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-input-header {
+    padding: 0px 0px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.def-input-style {
+    border-radius: 25px;
+    min-width: 200px;
+    padding: 1rem 1rem;
+
+    border: none;
+    height: 30px;
+}
+
+.search-input-header {
+}
+
+.serch-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 4em;
+    flex-wrap: wrap;
+}
+
+body {
+    font-family: Segoe UI, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.serach-btn {
+    background: pink;
+    border: none;
+    border-radius: 10px;
+    width: 40px;
 }
