@@ -1,9 +1,10 @@
-import React, {createContext, useState, useEffect} from "react";
+import React, {createContext, useEffect} from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const ThemeContext = createContext({});
 
 export default function ThemeProvider( {children } ) {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useLocalStorage("theme", "light");
 
     useEffect(() => {
         if (theme === "light") {

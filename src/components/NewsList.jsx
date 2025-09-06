@@ -22,7 +22,7 @@ export default function NewsList() {
     const handlePageChange = (page) => {
         setCurrentPage(page);
         // Прокрутка до верху списку новин
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (

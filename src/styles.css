@@ -1,28 +1,180 @@
-/* Обнулення стилів */
+/* =========================
+   RESET STYLES
+   ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Для HTML5 елементів */
 html, body {
     height: 100%;
     font-size: 100%;
     line-height: 1.5;
 }
 
-/* Забрати декорації з посилань */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Скидання стилів списків */
 ul, ol {
     list-style: none;
 }
 
+/* =========================
+   CSS VARIABLES
+   ========================= */
+body {
+    font-family: Segoe UI, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--main-background-color);
+    min-height: 100vh;
+
+    /* Light theme variables */
+    --header-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --header-text-color: white;
+    --main-container-color: white;
+    --main-background-color: white;
+    --main-text-color: white;
+    --footer-text-color: white;
+    --footer-background-color: #333;
+    --pagination-bg: white;
+    --pagination-text: #667eea;
+    --pagination-border: #667eea;
+    --pagination-hover-bg: #667eea;
+    --pagination-hover-text: white;
+    --pagination-active-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --pagination-active-text: white;
+    --pagination-active-border: #764ba2;
+    --pagination-disabled-bg: #f5f5f5;
+    --pagination-disabled-text: #ccc;
+    --pagination-disabled-border: #e0e0e0;
+    --change-theme: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
+    --sidebar-title-color: #333;
+    --sidebar-background-color: white;
+    --input-background: white;
+    --input-text-color: #202020;
+    --input-placeholder-color: #999;
+    --input-hover-background: #f8f9fa;
+    --input-focus-background: #ffffff;
+
+    --comments-section-background: #f9f9f9;
+    --comments-form-background: #f9f9f9;
+}
+
+/* Dark theme variables */
+body.dark {
+    --header-background-color: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
+    --header-text-color: #f1f1f1;
+    --main-container-color: #393939;
+    --main-background-color: #2b2b2b;
+    --main-text-color: #e0e0e0;
+    --footer-background-color: #1a1a1a;
+    --footer-text-color: #bbbbbb;
+    --pagination-bg: #363636;
+    --pagination-text: #ffffff;
+    --pagination-border: rgba(137, 158, 255, 0);
+    --pagination-hover-bg: #5c6bc0;
+    --pagination-hover-text: #fff;
+    --pagination-active-bg: linear-gradient(135deg, #4e63e6 0%, #3749ca 100%);
+    --pagination-active-text: white;
+    --pagination-active-border: #303f9f;
+    --pagination-disabled-bg: #2a2a2a;
+    --pagination-disabled-text: #777;
+    --pagination-disabled-border: #444;
+    --change-theme: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --sidebar-title-color: white;
+    --sidebar-background-color: #393939;
+    --input-background: #4a4a4a;
+    --input-text-color: #e0e0e0;
+    --input-placeholder-color: #aaa;
+    --input-hover-background: #555555;
+    --input-focus-background: #525252;
+
+    --comments-section-background: #4a4a4a;
+    --comments-form-background: #515151;
+
+}
+
+/* =========================
+   LAYOUT & CONTAINERS
+   ========================= */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.main-content {
+    background: var(--main-container-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease;
+}
+
+/* =========================
+   HEADER STYLES
+   ========================= */
+header {
+    background: var(--header-background-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.6rem 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 4em;
+    flex-wrap: wrap;
+}
+
+.serch-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.serach-btn {
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.serach-btn:hover {
+    background: #657de8;
+    box-shadow: 0 0 10px 5px rgba(213, 199, 255, 0.1);
+    transform: scale(1.04);
+}
+
+/* =========================
+   THEME TOGGLE
+   ========================= */
 .theme-toggle {
     position: fixed;
     top: 50%;
@@ -44,161 +196,92 @@ ul, ol {
     transform: translateY(-50%) scale(1.1);
 }
 
-header {
-     background: var(--header-background-color);
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 0.6rem 0;
-
-}
-
-.container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
-
-}
-
-/*ul.nav li {*/
-/*    color: red;*/
-/*}*/
-
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.search-input-header {
-    padding: 0px 0px;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-
-}
-
+/* =========================
+   INPUT STYLES
+   ========================= */
 .def-input-style {
     border-radius: 25px;
     min-width: 200px;
     padding: 1rem 1rem;
-
-    border: none;
-    height: 30px;
+    border: 2px solid #e0e0e0;
+    height: 40px;
+    background: var(--input-background);
+    color: var(--input-text-color);
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-.search-input-header {
+.def-input-style:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: var(--input-focus-background);
+    transform: scale(1.02);
 }
 
-.serch-group {
+.def-input-style:hover {
+    border-color: #a0a0a0;
+    background: var(--input-hover-background);
+}
+
+.def-input-style::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.def-input-style:focus::placeholder {
+    opacity: 0.4;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: var(--input-background);
+    color: var(--input-text-color);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.newsletter-input:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+    background: var(--input-focus-background);
+    transform: translateY(-2px);
+}
+
+.newsletter-input:hover {
+    border-color: #ff9999;
+    background: var(--input-hover-background);
+}
+
+.newsletter-input::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.newsletter-input:focus::placeholder {
+    opacity: 1;
+}
+
+/* =========================
+   NEWS STYLES
+   ========================= */
+.news-list {
+    width: 100%;
+}
+
+.news-items {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
 }
 
-.nav {
-    display: flex;
-    list-style: none;
-    gap: 4em;
-    flex-wrap: wrap;
-}
-
-body {
-    font-family: Segoe UI, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: var(--main-background-color);
-    min-height: 100vh;
-
-    --header-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --header-text-color: white;
-
-    --main-container-color: white;
-    --main-background-color: white;
-    --main-text-color: white;
-
-    --footer-text-color: white;
-    --footer-background-color: #333;
-
-    -pagination-bg: white;
-    --pagination-text: #667eea;
-    --pagination-border: #667eea;
-
-    --pagination-hover-bg: #667eea;
-    --pagination-hover-text: white;
-
-    --pagination-active-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --pagination-active-text: white;
-    --pagination-active-border: #764ba2;
-
-    --pagination-disabled-bg: #f5f5f5;
-    --pagination-disabled-text: #ccc;
-    --pagination-disabled-border: #e0e0e0;
-
-    --change-theme: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
-
-}
-
-body.dark {
-    --header-background-color: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
-    --header-text-color: #f1f1f1;
-
-    --main-container-color: #787878;
-    --main-background-color: #535353;
-    --main-text-color: #e0e0e0;
-
-    --footer-background-color: #1a1a1a;
-    --footer-text-color: #bbbbbb;
-
-    --pagination-bg: #363636;
-    --pagination-text: #ffffff;
-    --pagination-border: rgba(137, 158, 255, 0);
-
-    --pagination-hover-bg: #5c6bc0;
-    --pagination-hover-text: #fff;
-
-    --pagination-active-bg: linear-gradient(135deg, #4e63e6 0%, #3749ca 100%);
-    --pagination-active-text: white;
-    --pagination-active-border: #303f9f;
-
-    --pagination-disabled-bg: #2a2a2a;
-    --pagination-disabled-text: #777;
-    --pagination-disabled-border: #444;
-
-
-    --change-theme: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-}
-
-.serach-btn {
-    border: none;
-    border-radius: 10px;
-    width: 40px;
-    cursor: pointer;
-}
-
-.serach-btn:hover {
-    background: #ff5252;
-    transform: scale(1.05);
-}
-
-.main-content {
-    background: var(--main-container-color);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: fadeInUp 0.6s ease;
+.news-items .hero-news:last-child {
+    margin-bottom: 1rem;
 }
 
 .hero-news {
@@ -213,7 +296,9 @@ body.dark {
     align-items: end;
     cursor: pointer;
     transition: transform 0.3s ease;
+    animation: fadeInUp 0.6s ease forwards;
 }
+
 .hero-news:hover {
     transform: scale(1.02);
 }
@@ -255,12 +340,11 @@ body.dark {
     line-height: 1.5;
 }
 
-
-/* Додайте ці стилі до вашого src/styles.css файлу */
-
-/* Стилі для пагінації */
+/* =========================
+   PAGINATION STYLES
+   ========================= */
 .pagination-container {
-    }
+}
 
 .pagination-info {
     text-align: center;
@@ -275,7 +359,6 @@ body.dark {
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
-
 }
 
 .pagination-btn {
@@ -295,14 +378,14 @@ body.dark {
     background: var(--pagination-hover-bg);
     color: var(--pagination-hover-text);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* можна теж винести у змінну */
+    box-shadow: 0 0px 12px rgba(102, 126, 234, 0.3);
 }
 
 .pagination-btn.active {
     background: var(--pagination-active-bg);
     color: var(--pagination-active-text);
     border-color: var(--pagination-active-border);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); /* теж бажано у змінну */
+    box-shadow: 0 0px 10px rgba(102, 126, 234, 0.4);
 }
 
 .pagination-btn.disabled {
@@ -320,17 +403,286 @@ body.dark {
     box-shadow: none;
 }
 
-/* Стилі для списку новин */
-.news-list {
-    width: 100%;
+.pagination-btn-move {
+    padding: 0.75rem 0.5rem;
 }
 
-.news-items {
+/* =========================
+   SIDEBAR STYLES
+   ========================= */
+.sidebar {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
-/* Анімація появи новин */
+.sidebar-widget {
+    background: var(--sidebar-background-color);
+    color: var(--main-text-color);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    animation: fadeInRight 0.6s ease;
+}
+
+.widget-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--sidebar-title-color);
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.under-title-text {
+    color: var(--sidebar-title-color);
+}
+
+/* Popular News Widget */
+.popular-news-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.popular-news-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.popular-news-num {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+    min-width: 30px;
+}
+
+.popular-news-content h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.popular-news-meta {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Newsletter Widget */
+.newsletter-form {
+    text-align: center;
+}
+
+.newsletter-text-promotion {
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+}
+
+.news-latter .widget-title {
+    margin-bottom: 10px;
+}
+
+.newsletter-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Social Links Widget */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-facebook { background: #3b5998; }
+.social-twitter { background: #1da1f2; }
+.social-instagram { background: #e4405f; }
+.social-youtube { background: #ff0000; }
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Advertisement Widget */
+.ad img {
+    width: 252px;
+    height: 150px;
+}
+
+/* =========================
+   COMMENTS STYLES
+   ========================= */
+
+.comments-section {
+    background: var(--comments-section-background);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 4rem;
+    color: var(--sidebar-title-color);
+
+}
+
+.comment-form {
+    background: var(--comments-form-background);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: var(--comments-form-background);
+}
+
+.form-input:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.comments-list {
+    space-y: 1rem;
+}
+
+.comment {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid #667eea;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.comment-info h4 {
+    margin-bottom: 0.2rem;
+    color: #333;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.comment-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.comment-btn:hover {
+    color: #5a67d8;
+}
+
+/* =========================
+   FOOTER STYLES
+   ========================= */
+.footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -342,11 +694,9 @@ body.dark {
     }
 }
 
-.hero-news {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-/* Респонсивність для пагінації */
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
 @media (max-width: 768px) {
     .pagination {
         gap: 0.25rem;
@@ -361,9 +711,4 @@ body.dark {
     .pagination-info {
         font-size: 0.8rem;
     }
-}
-
-
-.pagination-btn-move {
-    padding: 0.75rem 0.5rem;
 }
